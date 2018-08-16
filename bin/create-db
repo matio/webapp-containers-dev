@@ -1,0 +1,8 @@
+#!/bin/bash
+docker-compose run --rm db mysql -uroot -hdb <<EOF
+CREATE USER 'webapp'@'%' IDENTIFIED BY 'webapp';
+CREATE DATABASE webapp DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_general_ci;
+CREATE DATABASE webapp_test DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_general_ci;
+GRANT ALL PRIVILEGES ON webapp.* TO 'webapp'@'%';
+GRANT ALL PRIVILEGES ON webapp_test.* TO 'webapp'@'%';
+EOF
