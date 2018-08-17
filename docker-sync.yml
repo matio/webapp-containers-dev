@@ -3,7 +3,7 @@ version: '2'
 options:
   verbose: true
 syncs:
-  ``webapp``-sync:
-    src: './repos/``webapp``'
+  webapp-sync:
+    src: './repos/webapp'
     sync_strategy: 'unison'
     sync_userid: '1000'

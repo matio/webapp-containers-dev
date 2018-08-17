@@ -40,12 +40,12 @@ RUN npm install -g "yarn@${YARN_VERSION}"
 
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m ``webapp``
-RUN mkdir -p /repos/``webapp``
-RUN chown -R  ``webapp``:``webapp`` /repos
+RUN useradd -m webapp
+RUN mkdir -p /repos/webapp
+RUN chown -R  webapp:webapp /repos
 
-USER ``webapp``
-WORKDIR /repos/``webapp``
+USER webapp
+WORKDIR /repos/webapp
 
 EXPOSE 3000
 

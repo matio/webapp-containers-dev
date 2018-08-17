@@ -3,13 +3,13 @@ version: '3'
 services:
   webapp:
     build: ./containers/webapp
-    image: ``webapp``/webapp
+    image: webapp/webapp
     environment:
       TZ: "Asia/Tokyo"
     tty: true
     stdin_open: true
     volumes:
-      - ``webapp``-sync:/repos/``webapp``:nocopy
+      - webapp-sync:/repos/webapp:nocopy
     depends_on:
       - db
     ports:
@@ -18,7 +18,7 @@ services:
 
   db:
     build: ./containers/db
-    image: ``webapp``/db
+    image: webapp/db
     environment:
       TZ: "Asia/Tokyo"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -28,6 +28,6 @@ services:
       - "20050:3306"
 
 volumes:
-  ``webapp``-sync:
+  webapp-sync:
     external: true
   db_data: {}
